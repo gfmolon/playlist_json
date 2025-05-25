@@ -4,7 +4,7 @@ playlists = []
 
 
 # MENU
-def menu():
+def menu() -> str:
     print("*" * 30)
     print("MENU")
     print("*" * 30)
@@ -19,7 +19,7 @@ def menu():
 
 
 # LISTA PLAYLISTS
-def listar(lista):
+def listar(lista: list[str]) -> str:
     if len(lista) > 0:
         for i, playlist in enumerate(lista):
             print(f"{i} - {playlist}")
@@ -28,14 +28,14 @@ def listar(lista):
 
 
 # CADASTRA PLAYLISTS
-def cadastrar(lista):
+def cadastrar(lista: list[str]) -> None:
     playlist = input("NOME DA PLAYLIST: ")
     lista.append(playlist)
     listar(lista)
 
 
 # EXCLUIR PLAYLISTS
-def excluir(lista):
+def excluir(lista: list[str]) -> None:
     if len(lista) < 1:
         print("Nenhuma lista cadastrada.")
     else:
@@ -52,7 +52,7 @@ def excluir(lista):
 
 
 # EXPORTAR PLAYLISTS PARA JSON
-def exportar(lista):
+def exportar(lista: list[str]) -> str:
     with open("playlists.json", "w", encoding="utf-8") as f:
         json.dump(lista, f, ensure_ascii=False, indent=4)
     print("Playlists exportadas para 'playlists.json'.")
